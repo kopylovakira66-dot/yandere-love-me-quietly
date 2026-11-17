@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#190b10">
+<meta name="description" content="YANDERE — LOVE ME QUIETLY. Психологическая визуальная новелла.">
+<title>YANDERE — LOVE ME QUIETLY</title><link rel="stylesheet" href="style.css"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/favicon.png" type="image/png"><link rel="apple-touch-icon" href="assets/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+<header><a class="brand" href="#" data-screen="home">YANDERE <span>— LOVE ME QUIETLY ♡</span></a><div class="head-actions"><button id="musicBtn">♫ Музыка: выкл.</button><button id="immersiveBtn" title="Полноэкранный режим">⛶</button><button id="settingsBtn">⚙</button></div></header>
+<main>
+<section id="home" class="screen">
+ <div class="hero">
+  <canvas class="ambient-canvas" id="titleParticles" aria-hidden="true"></canvas>
+  <p class="eyebrow">ПСИХОЛОГИЧЕСКАЯ ВИЗУАЛЬНАЯ НОВЕЛЛА</p>
+  <h1>LOVE ME<br><i>QUIETLY</i></h1>
+  <p class="tagline">«Я просто хочу быть человеком, к которому ты возвращаешься».</p>
+  <div class="main-menu">
+   <button data-action="new">Новая игра</button><button id="continueBtn" class="hidden" data-action="continue">Продолжить</button>
+   <button data-action="endings">Концовки</button><button data-action="gallery">Галерея</button>
+   <button data-action="achievements">Достижения</button><button data-action="dossier">Досье персонажей</button>
+  </div>
+  <small>Сезон I · 10 глав · версия 1.0</small>
+ </div>
+</section>
+<section id="profile" class="screen hidden">
+ <div class="panel narrow"><p class="eyebrow">ПЕРЕД НАЧАЛОМ</p><h2>Как тебя зовут?</h2>
+ <label>Имя героини<input id="heroName" maxlength="20" value="Кира" placeholder="Например, Кира"></label>
+ <label>Написание имени<select id="nameScript"><option value="ru">Кириллица — Кира</option><option value="latin">Латиница — Kira</option></select></label>
+ <p>Выбери внешность героини. Это косметические варианты: сюжет и характер остаются прежними.</p><p class="name-preview">Имя в игре: <strong id="namePreview">Кира</strong></p>
+ <div class="choice-grid"><button data-look="dark">Тёмные волосы</button><button data-look="light">Светлые волосы</button><button data-look="copper">Медные волосы</button></div>
+ <label>Цвет волос<select id="heroLook"><option value="dark">Тёмные</option><option value="light">Светлые</option><option value="copper">Медные</option></select></label>
+ <label>Цвет глаз<select id="heroEyes"><option value="brown">Карие</option><option value="blue">Голубые</option><option value="green">Зелёные</option><option value="grey">Серые</option></select></label>
+ <button id="begin" class="primary">Начать историю →</button></div>
+</section>
+<section id="story" class="screen hidden">
+ <div class="story-top"><span id="chapterLabel">ГЛАВА I</span><span id="chapterCount">01 / 10</span><span class="landscape-label">ПОЛНОЭКРАННАЯ НОВЕЛЛА</span></div>
+ <div class="scene-art" id="sceneArt"><canvas class="ambient-canvas scene-particles" id="sceneParticles" aria-hidden="true"></canvas><div class="art-caption" id="artCaption">Пыльный свет после уроков</div></div>
+ <article class="dialogue">
+  <div class="speaker-row"><div class="character-portrait" id="characterPortrait"></div><div class="speaker" id="speaker"></div></div><div class="line" id="line"></div>
+  <div id="choices" class="choice-grid"></div>
+  <button id="next" class="primary next">Далее →</button>
+ </article>
+ <div class="story-footer"><span id="stats">Доверие · Привязанность · Ревность</span><button data-action="save">Сохранить</button><small id="saveStatus" aria-live="polite"></small><button data-action="home">В меню</button><button id="storyFullscreen">⛶ Экран</button></div>
+</section>
+<section id="ending" class="screen hidden"><div class="panel ending-panel"><p class="eyebrow">ФИНАЛ ИСТОРИИ</p><h2 id="endingTitle">Концовка</h2><p id="endingText"></p><div class="choice-grid"><button id="endingMenu" class="primary">В меню</button><button id="endingReplay">Новое прохождение</button></div></div></section>
+<section id="library" class="screen hidden"><div class="panel"><p class="eyebrow">ЛИЧНЫЙ АРХИВ</p><h2 id="libraryTitle">Коллекция</h2><div id="libraryContent"></div><button data-action="home">← В меню</button></div></section>
+<section id="settings" class="screen hidden"><div class="panel narrow"><h2>Настройки</h2><label>Громкость музыки <input id="volume" type="range" min="0" max="100" value="24"></label><label>Скорость текста <select id="textSpeed"><option value="normal">Обычная</option><option value="fast">Быстрая</option></select></label><hr><h3>Резервная копия прогресса</h3><p>Экспортируй файл, чтобы перенести сохранение и коллекцию на другое устройство.</p><button id="exportSave">Экспортировать сохранение</button><label>Импорт сохранения<input id="importSave" type="file" accept="application/json"></label><button data-action="home">Назад</button></div></section>
+</main>
+<div id="imageLightbox" class="image-lightbox hidden"><button id="lightboxClose" aria-label="Закрыть">×</button><img id="lightboxImage" alt="Открытая сюжетная иллюстрация"><p id="lightboxTitle"></p></div>
+<div id="rotateHint" class="rotate-hint hidden">Поверни телефон горизонтально для лучшего игрового опыта</div><footer>История о привязанности, ревности и цене выбора · Все персонажи романтической линии совершеннолетние</footer>
+<script src="game.js"></script><script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
+</body></html>
